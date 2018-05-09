@@ -1,0 +1,14 @@
+#!/bin/bash
+
+DOT_DIR="$HOME/.dotfiles/dot"
+
+for fn in `ls "$DOT_DIR"`; do
+  path="$HOME/.$fn"
+  if [ -L "$path" ]; then
+    true # pass
+  elif [ -e "$path" ]; then
+    >&2 echo "$path exist!"
+  else
+    ln -s "$DOT_DIR/$fn" "$path"
+  fi
+done
