@@ -116,4 +116,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Git
+function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
+
+# Python
 export PIP_REQUIRE_VIRTUALENV=true

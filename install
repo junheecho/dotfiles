@@ -12,3 +12,5 @@ for fn in `ls "$DOT_DIR"`; do
     ln -s "$DOT_DIR/$fn" "$path"
   fi
 done
+
+git config --global core.excludesfile $HOME/.gitignore
