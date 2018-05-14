@@ -17,6 +17,7 @@ endif
 
 " Solarized dark
 try
+    let g:solarized_termtrans=1
     colorscheme solarized
 catch
 endtry
@@ -83,7 +84,7 @@ fun! CleanExtraSpaces()
 endfun
 
 if has("autocmd")
-    autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
+    autocmd BufWritePre *.tex,*.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
 endif
 
 " Pressing ,ss will toggle and untoggle spell checking
