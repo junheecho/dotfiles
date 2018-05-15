@@ -1,6 +1,10 @@
 " Always show current position
 set ruler
 
+" Configure backspace so it acts as it should act
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
 " Highlight search results
 set hlsearch
 
