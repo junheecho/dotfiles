@@ -106,3 +106,16 @@ set splitright
 " Highlight trailing whitespaces
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
+
+" Plugins
+call plug#begin('~/.vim/plugged')
+
+" Make sure you use single quotes
+
+Plug 'lervag/vimtex'
+
+" Initialize plugin system
+call plug#end()
+
+" vimtex
+let g:vimtex_fold_enabled=1
