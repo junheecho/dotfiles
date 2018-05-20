@@ -1,15 +1,26 @@
 #!/bin/bash
 
-DOT_DIR="$HOME/.dotfiles/dot"
-
-for fn in `ls "$DOT_DIR"`; do
-  path="$HOME/.$fn"
-  if [ -L "$path" ]; then
+symlink () {
+  if [ -L "$2" ]; then
     true # pass
-  elif [ -e "$path" ]; then
-    >&2 echo "$path exist!"
+  elif [ -e "$2" ]; then
+    >&2 echo "$2 exist!"
   else
-    ln -s "$DOT_DIR/$fn" "$path"
+    ln -s "$1" "$2"
+  fi
+}
+
+DOT_DIR="$HOME/.dotfiles/dot"
+for fn in `ls "$DOT_DIR"`; do
+  symlink "$DOT_DIR/$fn" "$HOME/.$fn"
+done
+
+CONFIG_DIR="$HOME/.dotfiles/config"
+for dn in `ls "$CONFIG_DIR"`; do
+  if [ -d "$HOME/.config/$dn" ]; then
+    for fn in `ls "$CONFIG_DIR/$dn"`; do
+      symlink "$CONFIG_DIR/$dn/$fn" "$HOME/.config/$dn/$fn"
+    done
   fi
 done
 

@@ -123,3 +123,10 @@ call plug#end()
 
 " vimtex
 let g:vimtex_fold_enabled=1
+
+" vimtex viewer
+if has('unix')
+    if executable('zathura')
+        let g:vimtex_view_method = 'zathura'
+    endif
+endif
