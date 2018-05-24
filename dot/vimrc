@@ -125,7 +125,11 @@ call plug#end()
 let g:vimtex_fold_enabled=1
 
 " vimtex viewer
-if has('unix')
+if has('macunix')
+    if executable('skimpdf')
+        let g:vimtex_view_method = 'skim'
+    endif
+elseif has('unix')
     if executable('zathura')
         let g:vimtex_view_method = 'zathura'
     endif
